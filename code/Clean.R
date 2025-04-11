@@ -1,6 +1,6 @@
 knitr::opts_chunk$set(echo = TRUE)
-install.packages("knitr") 
-install.packages("kableExtra")  
+# install.packages("knitr") 
+# install.packages("kableExtra")  
 library(readxl)
 library(dplyr)
 library(ggplot2)

@@ -1,3 +1,8 @@
+library(dplyr)
+library(knitr)
+library(tidyverse)
+df <- read_excel("~/Downloads/Georgia_DPH_PUBLIC_Vaccination_Public_Data_in_Excel.xlsx", 
+                 sheet = "COUNTY_SUMMARY")
 summary_table <- df %>%
   group_by(COUNTY_NAME) %>%
   summarize(
