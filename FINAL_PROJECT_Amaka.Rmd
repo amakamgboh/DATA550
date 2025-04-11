@@ -21,6 +21,7 @@ library(kableExtra)
 ```{r load-data}
 # Load the dataset
 library(readxl)
+library(here)
 file_path <- "Home/Downloads/Georgia_DPH_PUBLIC_Vaccination_Public_Data_in_Excel.xlsx"
 df <- read_excel("~/Downloads/Georgia_DPH_PUBLIC_Vaccination_Public_Data_in_Excel.xlsx", 
                  sheet = "COUNTY_SUMMARY")
@@ -28,6 +29,8 @@ df <- read_excel("~/Downloads/Georgia_DPH_PUBLIC_Vaccination_Public_Data_in_Exce
 
 head(df)
 colnames(df)
+
+saveRDS(df, here("output", "table.rds"))
 ```
 
 ## Introduction  
@@ -42,6 +45,8 @@ summary_table <- df %>%
   arrange(desc(Percent_Vaccinated))
 
 kable(summary_table, caption = "Summary of Vaccination Rates by County")
+
+saveRDS(df, here("output", "Summary.rds"))
 ```
 
 ```{r}
@@ -54,6 +59,8 @@ ggplot(df, aes(x = reorder(COUNTY_NAME, -PERSONCVAX), y = PERSONCVAX)) +
        x = "County",
        y = "Vaccination Rate (%)") +
   theme_minimal()
+
+ggsave(here("output", "dataviz.png"), plot= p, width= 8, height= 18)
 ```
 # Discussion 
 
