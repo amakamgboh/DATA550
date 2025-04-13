@@ -1,4 +1,12 @@
 # Code Description
+## Reproducibility
+
+This project uses [`renv`](https://rstudio.github.io/renv/) to manage package dependencies.
+
+To install the required packages and reproduce the environment, run the following command in the terminal:
+
+```bash
+make install
 
 `code/01_make_output1.R`
 - generates 100 random numbers

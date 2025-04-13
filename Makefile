@@ -1,4 +1,7 @@
 
+install:
+	Rscript -e "renv::restore()"
+	
 all: output/final_report.html
 
 install:
@@ -20,4 +23,6 @@ clean:
 	rm -f output/*.rds output/final_report.html
 
 run: install all
+
+
 
