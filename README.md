@@ -4,9 +4,12 @@
 This project uses [`renv`](https://rstudio.github.io/renv/) to manage package dependencies.
 
 To install the required packages and reproduce the environment, run the following command in the terminal:
+## 🐳 Docker Image
+
+To build the Docker image, run:
 
 ```bash
-make install
+docker build -t amakamgboh/final-project .
 
 `code/01_make_output1.R`
 - generates 100 random numbers
