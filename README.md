@@ -89,6 +89,7 @@ Pull Docker Image
 If you need to pull the image from DockerHub, you can use the following command:
 
 docker pull amakamgboh/final-project
+ https://hub.docker.com/r/amakamgboh/final-project
 
 The project can be run using the Docker image:
 
