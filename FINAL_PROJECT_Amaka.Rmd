@@ -10,8 +10,6 @@ options(repos = c(CRAN = "https://cloud.r-project.org/"))
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-install.packages("knitr") 
-install.packages("kableExtra")  
 library(readxl)
 library(dplyr)
 library(ggplot2)
@@ -19,16 +17,19 @@ library(kableExtra)
 ```
 
 ```{r load-data}
-# Load the dataset
 library(readxl)
 library(here)
-file_path <- "Home/Downloads/Georgia_DPH_PUBLIC_Vaccination_Public_Data_in_Excel.xlsx"
-df <- read_excel("~/Downloads/Georgia_DPH_PUBLIC_Vaccination_Public_Data_in_Excel.xlsx", 
-                 sheet = "COUNTY_SUMMARY")
+
+here::i_am("FINAL_PROJECT_Amaka.Rmd")
+file_path <- here("raw data", "Georgia_DPH_PUBLIC_Vaccination_Public_Data_in_Excel-2.xlsx")
+
+
+df <- read_excel(file_path, sheet = "COUNTY_SUMMARY")
 
 
 head(df)
 colnames(df)
+
 
 saveRDS(df, here("output", "table.rds"))
 ```
@@ -52,14 +53,14 @@ saveRDS(df, here("output", "Summary.rds"))
 ```{r}
 # Data Visualization
 
-ggplot(df, aes(x = reorder(COUNTY_NAME, -PERSONCVAX), y = PERSONCVAX)) +
+p <- ggplot(df, aes(x = reorder(COUNTY_NAME, -PERSONCVAX), y = PERSONCVAX)) +
   geom_bar(stat = "identity", fill = "blue") +
   coord_flip() +
   labs(title = "COVID-19 Vaccination Rates by County in Georgia",
        x = "County",
        y = "Vaccination Rate (%)") +
   theme_minimal()
-
+p
 ggsave(here("output", "dataviz.png"), plot= p, width= 8, height= 18)
 ```
 # Discussion 

@@ -54,6 +54,10 @@ report.Rmd
 	•	Loads the .rds files created by the three R scripts (01_make_output1.R, 02_make_output2.R, 03_make_output3.R).
 	•	Creates a histogram for each set of numbers and includes them in the final report.
 
+
+```bash
+docker build -t amakamgboh/final-project .
+```
 ⸻
 
 Run Report Generator
@@ -86,6 +90,12 @@ If you need to pull the image from DockerHub, you can use the following command:
 
 docker pull amakamgboh/final-project
 
+The project can be run using the Docker image:
+
+```bash
+docker pull amakamgboh/final-project
+docker run --rm -v $(pwd):/home/project amakamgboh/final-project
+```
 
 
 ⸻
